@@ -1,0 +1,36 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="models.js"></script>
+<script>
+    $(document).ready( function() {
+        var m = JSON.parse( localStorage.models );
+        for(var i=0; i<m.length; i++) {
+            $("#carTable > tbody:last")
+                .append($('<tr>')
+                    .append($('<td>')
+                        .append( m[i]._id )
+                    )
+
+                    .append($('<td>')
+                        .append( m[i].brand.toUpperCase() )
+                    )
+                    .append($('<td>')
+                        .append( m[i].models.join() )
+                    )                
+                );
+        }
+    });
+</script>
+<body>
+<p>
+<h1>Car Brand/Model</h1>
+<table id="carTable" border='1'>
+    <tbody>
+        <th>_id</th>
+        <th>Brand</th>
+        <th>Model</th>
+    </tbody>
+</table>
+<p>
+</body>
+</html>
