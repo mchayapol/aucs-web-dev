@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        padding: 5px;
+        text-align: center;
+    }
+    </style>
+    <title>
+        First Web-App!!
+    </title>
+</head>
+
+<body>
+    <h1>YOUR CAR ??</h1>
+    <!-- <p>My Name is Patipan Premrat</p> -->
+    <img src="ae86.jpg" width="300px" style="border-width: 3px; border-color: red; border-style: solid;" onclick="showInfo()">
+    <!-- <p style="color: red;">This's TOYOTA AE86</p> -->
+    <br />
+    <br />
+    <table style="width:50%;">
+        <tr>
+            <th>CAR_ID</th>
+            <th>CAR_NAME</th>
+            <th>TEST SPAND 1</th>
+            <th>TEST SPAND 2</th>
+            <th>TEST SPAND 3</th>
+        </tr>
+        <tr>
+            <td>AE86</td>
+            <td>TOYOTA COLLOLA [TRUENO]</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td>R32</td>
+            <td>NISSAN SKYLINE [GTR-32]</td>
+            <td>ZZZZZZ</td>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <h1>TEST SPAND TABLE!!</h1>
+    <table style="width:5%;">
+        <tr>
+            <th rowspan="2"></th>
+            <th colspan="2"></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td rowspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
+<script>
+function showInfo() {
+    alert("My name is Patipan Premrat. I choosed AE86 as my car");
+}
+</script>
