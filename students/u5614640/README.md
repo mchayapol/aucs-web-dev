@@ -1,1 +1,0 @@
-Thiwat Pai-upree
