@@ -11,34 +11,49 @@
           border: 1px solid gray;
       }
 
-      #divHeader {
+      #divHeader, #divFooter {
           width: 100%;
           height: 50px;
-          background-color: navy;
+          background-color: #23597d;
           color: white;
       }
     
       #divNav {          
           width: 120px;
-          height: 800px;
+          height: 80%;
           float: left;
       }
       
       #divContent {
           margin-left: 125px;
           width: 800px;
-          height: 800px;
+          height: 80%;
       }
+
+        #divFooter {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+        }
+
+        #txtGraphSearch {
+            width: 320px;
+        }
            
     </style>
 </head>
 <body>
-    <div id="divHeader">Chayapol Moemeng</div>
+    <div id="divHeader">
+        Chayapol Moemeng
+        <input type="text" id="txtGraphSearch" />
+    </div>
     <div id="divNav">Newsfeed<br />VMS</div>
     <div id="divContent">
         <div id="news1">News 1</div>
         <div id="news2">News 2</div>
         <div id="news3">News 3</div>
     </div>
+    <div id="divFooter">Copyright by Chayapol</div>
 </body>
 </html>
