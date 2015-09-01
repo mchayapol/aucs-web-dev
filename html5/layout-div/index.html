@@ -40,7 +40,14 @@
         #txtGraphSearch {
             width: 320px;
         }
-           
+
+        .news {
+            text-align: center;
+        }
+
+        .commentbox {
+            width: 400px;
+        }
     </style>
 </head>
 <body>
@@ -50,9 +57,35 @@
     </div>
     <div id="divNav">Newsfeed<br />VMS</div>
     <div id="divContent">
-        <div id="news1">News 1</div>
-        <div id="news2">News 2</div>
-        <div id="news3">News 3</div>
+        <div id="news1" class="news">
+            <table border="0" align="center" width="400">
+                <tr><td>
+                    <table width="100%">
+                        <tr>
+                            <td width="60"><img src="avatar.jpg" width="60" /></td>
+                            <td width="280" align="left" valign="top">Kitty Kitty Kat<br />1 September 2015, Just now</td>
+                            <td align="right" valign="top"><button>V</button></td>
+                        </tr>
+                    </table>
+                </td></tr>
+                <tr><td align="left">Lorem ipsum dolor sit amet, vel simul expetendis in, quo graece postea repudiare id. Mea error populo possit ex, est malis discere ex. Ex sed legimus prodesset, pri ei hinc regione imperdiet. Quot copiosae singulis cu pro, malis graeco fabulas ex cum.
+                <tr><td><img src="news1.jpg" width="100%" /></td></tr>
+                <tr><td>
+                    <table width="100%">
+                        <tr>
+                            <td>Like</td>
+                            <td>Comment</td>
+                            <td>Share</td>
+                        </tr>
+                    </table>
+                </td></tr>
+                <tr><td>
+                    <textarea class="commentbox"></textarea>
+                </td></tr>
+            </table>
+        </div>
+        <div id="news2" class="news">News 2</div>
+        <div id="news3" class="news">News 3</div>
     </div>
     <div id="divFooter">Copyright by Chayapol</div>
 </body>
