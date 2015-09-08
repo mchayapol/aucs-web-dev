@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        Cash Reg Apps!
+    </title>
+    <style>
+    #cash_table {
+        background-color: #FFF5EE;
+        float: left;
+    }
+    
+    #purchase_txt,
+    #cash_txt {
+        background-color: #F0FFFF;
+        text-align: right;
+    }
+    
+    #change_txt {
+        background-color: #FFCBA4;
+    }
+    
+    #detail_div {
+        background-color: #43BFC7;
+        float: left;
+        margin-left: 2%;
+        width: 20%;
+        border-style: dashed;
+        border-width: 1px;
+    }
+    </style>
+</head>
+
+<body>
+    <table id="cash_table">
+        <tr>
+            <td>
+                Cash Reg
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Purchase
+            </td>
+            <td>
+                <input type="text" id="purchase_txt" placeholder="Ex.(231)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cash
+            </td>
+            <td>
+                <input type="text" id="cash_txt" placeholder="Ex.(300)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Change
+            </td>
+            <td>
+                <input type="text" id="change_txt" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="calculateChange()">Calculate</button>
+            </td>
+            <td>
+                <button onclick="clearText()">Clear</button>
+            </td>
+        </tr>
+    </table>
+    <div id="detail_div">
+        <table>
+            <tr>
+                <td>
+                    Purchase
+                </td>
+                <td>
+                    <label id="purchase_detail_txt"></label>
+                </td>
+                <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr>
+                    <td>
+                        Cash
+                    </td>
+                    <td>
+                        <label id="cash_detail_txt"></label>
+                    </td>
+            	</tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+            	<tr>
+            		<td>
+                        Change
+                    </td>
+                    <td>
+                        <label id="change_detail_txt"></label>
+                    </td>
+            	</tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+            	<tr>
+            		<td>
+                        Amount
+                    </td>
+                    <td>
+                        <label id="amount_detail_txt"></label>
+                    </td>
+            	</tr><tr></tr><tr></tr><tr></tr>
+            	<tr>
+            		<td>
+                        VAT 7%
+                    </td>
+                    <td>
+                        <label id="vat_detail_txt"></label>
+                    </td>
+            	</tr>
+        </table>
+    </div>
+</body>
+    <script>
+    document.getElementById('detail_div').style.display = 'none';
+
+	function numberWithCommas(x) {
+    	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+    function clearText() {
+        document.getElementById('purchase_txt').value = "";
+        document.getElementById('cash_txt').value = "";
+        document.getElementById('change_txt').value = "";
+
+        document.getElementById('detail_div').style.display = 'none';
+    }
+
+    function calculateChange() {
+        var purchase_value = document.getElementById('purchase_txt');
+        var cash_value = document.getElementById('cash_txt');
+        var change_value = document.getElementById('change_txt');
+
+        if (parseFloat(purchase_value.value) > parseFloat(cash_value.value)) {
+            alert("NOT ENOUGHT MONEY!!");
+            clearText();
+            return;
+        }
+        if(purchase_value.value == "" || cash_value.value == ""){
+        	alert("PLEASE FILL IN ALL FIELDS!!");
+        	return;
+        }
+
+        if(isNaN(purchase_value.value) == true || isNaN(cash_value.value) == true){
+        	alert("PLEASE PUT ONLY NUMBERIC TYPE!!");
+        	clearText();
+        	return;
+        }
+        var tmp = parseFloat(cash_value.value) - parseFloat(purchase_value.value);
+        
+        change_value.value = numberWithCommas((parseFloat(cash_value.value) - parseFloat(purchase_value.value)).toFixed(2));
+
+        //SET DIV RESULT
+        document.getElementById('purchase_detail_txt').innerHTML = numberWithCommas(parseFloat((purchase_value.value)).toFixed(2));
+        document.getElementById('cash_detail_txt').innerHTML = numberWithCommas(parseFloat((cash_value.value)).toFixed(2));
+        document.getElementById('change_detail_txt').innerHTML = change_value.value;
+
+        var vat7Percent = parseFloat(purchase_value.value) * 0.07;
+
+        document.getElementById('amount_detail_txt').innerHTML = numberWithCommas((tmp - vat7Percent).toFixed(2));
+        document.getElementById('vat_detail_txt').innerHTML = numberWithCommas(parseFloat(vat7Percent).toFixed(2));
+
+        document.getElementById('detail_div').style.display = 'block';
+    }
+    </script>
+
+</html>
