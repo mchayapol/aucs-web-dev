@@ -7,52 +7,52 @@ $(document).ready(function() {
     });
 
     //Number button click
-    $('#0_btn').click(function() {
+    $('#zero_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '0';
         $('#input_box').val(tmp);
     });
-    $('#1_btn').click(function() {
+    $('#one_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '1';
         $('#input_box').val(tmp);
     });
-    $('#2_btn').click(function() {
+    $('#two_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '2';
         $('#input_box').val(tmp);
     });
-    $('#3_btn').click(function() {
+    $('#three_btn').click(function() { 
         var tmp = $('#input_box').val();
         tmp = tmp + '3';
         $('#input_box').val(tmp);
     });
-    $('#4_btn').click(function() {
+    $('#four_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '4';
         $('#input_box').val(tmp);
     });
-    $('#5_btn').click(function() {
+    $('#five_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '5';
         $('#input_box').val(tmp);
     });
-    $('#6_btn').click(function() {
+    $('#six_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '6';
         $('#input_box').val(tmp);
     });
-    $('#7_btn').click(function() {
+    $('#seven_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '7';
         $('#input_box').val(tmp);
     });
-    $('#8_btn').click(function() {
+    $('#eight_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '8';
         $('#input_box').val(tmp);
     });
-    $('#9_btn').click(function() {
+    $('#nine_btn').click(function() {
         var tmp = $('#input_box').val();
         tmp = tmp + '9';
         $('#input_box').val(tmp);
@@ -121,10 +121,8 @@ $(document).ready(function() {
             }
 
             var tmp = $('#input_box').val();
-
             tmp = tmp + keydown;
             $('#input_box').val(tmp);
-
 
             console.log('in 1st condition');
         } else if (e.keyCode == 13) {
@@ -148,9 +146,13 @@ $(document).ready(function() {
             $('#input_box').val(result);
 
             console.log(e.keyCode + " " + String.fromCharCode(e.keyCode));
+        } else if (e.keyCode == 8) {
+        	var tmp = $('#input_box').val();
+            tmp = tmp.substring(0, tmp.length-1);
+            $('#input_box').val(tmp);
         } else {
+            //console.log("RETURN " + e.keyCode + " " + String.fromCharCode(e.keyCode));
             return;
         }
-
     });
 });

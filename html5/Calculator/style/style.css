@@ -1,12 +1,16 @@
 #outline_calculator{
-	border-style: double;
-    border-width: 5px;
+	border-style: ridge;
+    border-width: 3px;
+    background-color: #FBF6D9;
 }
 
 #input_box{
 	width: 98%;
-	height: 100%;
-	text-align: center;
+	height: 80px;
+	text-align: right;
+	font-size: 40px;
+	border-radius: 20px;
+	border-width: 0px;
 }
 
 #plus_btn{

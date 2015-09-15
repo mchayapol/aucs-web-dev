@@ -1,0 +1,45 @@
+#zero_btn,#one_btn,#two_btn,#three_btn,#four_btn,#five_btn,#six_btn,#seven_btn,#eight_btn,#nine_btn,#reset_text_btn 
+,#divide_btn,#multiply_btn,#minus_btn,#plus_btn,#free_btn,#dot_btn,#equal_btn{
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	padding:19px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+#zero_btn:hover,#one_btn:hover,#two_btn:hover,#three_btn:hover,#four_btn:hover,#five_btn:hover,#six_btn:hover,#seven_btn:hover,
+#eight_btn:hover,#nine_btn:hover,#reset_text_btn:hover,#divide_btn:hover,#multiply_btn:hover,#minus_btn:hover,
+#plus_btn:hover,#free_btn:hover,#dot_btn:hover,#equal_btn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+#zero_btn:active,#one_btn:active,#two_btn:active,#three_btn:active,#four_btn:active,#five_btn:active,#six_btn:active,#seven_btn:active,
+#eight_btn:active,#nine_btn:active,#reset_text_btn:active,#divide_btn:active,#multiply_btn:active,#minus_btn:active,
+#plus_btn:active,#free_btn:active,#dot_btn:active,#equal_btn:active {
+	position:relative;
+	top:1px;
+}
