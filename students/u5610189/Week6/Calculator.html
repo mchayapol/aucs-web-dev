@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+
+        Button {
+	    -moz-box-shadow: 0px 10px 14px -7px #276873;
+	    -webkit-box-shadow: 0px 10px 14px -7px #276873;
+    	box-shadow: 0px 10px 14px -7px #276873;
+    	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #89c3d6), color-stop(1, #5099a3));
+	    background:-moz-linear-gradient(top, #89c3d6 5%, #5099a3 100%);
+	    background:-webkit-linear-gradient(top, #89c3d6 5%, #5099a3 100%);
+    	background:-o-linear-gradient(top, #89c3d6 5%, #5099a3 100%);
+	    background:-ms-linear-gradient(top, #89c3d6 5%, #5099a3 100%);
+	    background:linear-gradient(to bottom, #89c3d6 5%, #5099a3 100%);
+    	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c3d6', endColorstr='#5099a3',GradientType=0);
+    	background-color:#89c3d6;
+	    -moz-border-radius:8px;
+	    -webkit-border-radius:8px;
+	    border-radius:8px;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#f7f7f7;
+	    font-family:Arial;
+	    font-size:20px;
+	    font-weight:bold;
+	    padding:13px 32px;
+	    text-decoration:none;
+	    text-shadow:0px 1px 0px #347c94;
+        width: 130px;
+        height: 60px;
+        
+        }
+        .myButton:hover {
+	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5099a3), color-stop(1, #89c3d6));
+	        background:-moz-linear-gradient(top, #5099a3 5%, #89c3d6 100%);
+	        background:-webkit-linear-gradient(top, #5099a3 5%, #89c3d6 100%);
+	        background:-o-linear-gradient(top, #5099a3 5%, #89c3d6 100%);
+	        background:-ms-linear-gradient(top, #5099a3 5%, #89c3d6 100%);
+	        background:linear-gradient(to bottom, #5099a3 5%, #89c3d6 100%);
+	        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5099a3', endColorstr='#89c3d6',GradientType=0);
+	        background-color:#5099a3;
+        }
+        .myButton:active {
+        	position:relative;
+        	top:1px;
+        }
+
+
+        input {
+            width: 99%;
+            height: 120px;
+            background-color:white;
+            border-radius: 10px;
+            font-size:xx-large;
+            text-align:right;
+        }
+
+    </style>
+    <script>
+        function concatString(string,input){
+            string = string + input;
+            document.getElementById('display').value = string;
+        }
+
+        function clearText() {
+            document.getElementById('display').value = "";
+        }
+
+        function calculate() {
+            document.getElementById('display').value = eval(document.getElementById('display').value);
+        }
+
+        function calculate2(input) {
+            concatString(document.getElementById('display').value = eval(document.getElementById('display').value),input);
+        }
+    </script>
+</head>
+<body>
+    <table id="table1" border="0">
+        <tr>
+            <td colspan="4">
+                <input type="text" id="display" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="clearButton" onclick="clearText()">Clear</button>
+            </td>
+            <td >
+                <button id="slashButton" onclick="calculate2('/')">/</button>
+            </td>
+            <td>
+                <button id="multiply" onclick="calculate2('*')">*</button>
+            </td>
+            <td>
+                <button id="minus" onclick="calculate2('-')">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="7" onclick="concatString(document.getElementById('display').value,7)">7</button>
+            </td>
+            <td>
+                <button id="8" onclick="concatString(document.getElementById('display').value,8)">8</button>
+            </td>
+            <td>
+                <button id="9" onclick="concatString(document.getElementById('display').value,9)">9</button>
+            </td>
+            <td rowspan="2">
+                <button id="plus" style="height:125px" onclick="calculate2('+')">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="4" onclick="concatString(document.getElementById('display').value,4)">4</button>
+            </td>
+            <td>
+                <button id="5" onclick="concatString(document.getElementById('display').value,5)">5</button>
+            </td>
+            <td>
+                <button id="6" onclick="concatString(document.getElementById('display').value,6)">6</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="1" onclick="concatString(document.getElementById('display').value,1)">1</button>
+            </td>
+            <td>
+                <button id="2" onclick="concatString(document.getElementById('display').value,2)">2</button>
+            </td>
+            <td>
+                <button id="3" onclick="concatString(document.getElementById('display').value,3)">3</button>
+            </td>
+            <td rowspan="2">
+                <button id="=" style="height:125px" onclick="calculate()">=</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button id="0" style="width:100%" onclick="concatString(document.getElementById('display').value,0)">0</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
