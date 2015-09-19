@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <script>
+        var exp = "";
+        function push0() {
+            exp += "0";
+            document.getElementById("display").value = exp;
+        }
+        function push1() {
+            exp += "1";
+            document.getElementById("display").value = exp;
+        }
+        function push2() {
+            exp += "2";
+            document.getElementById("display").value = exp;
+        }
+        function push3() {
+            exp += "3";
+            document.getElementById("display").value = exp;
+        }
+        function push4() {
+            exp += "4";
+            document.getElementById("display").value = exp;
+        }
+        function push5() {
+            exp += "5";
+            document.getElementById("display").value = exp;
+        }
+        function push6() {
+            exp += "6";
+            document.getElementById("display").value = exp;
+        }
+        function push7() {
+            exp += "7";
+            document.getElementById("display").value = exp;
+        }
+        function push8() {
+            exp += "8";
+            document.getElementById("display").value = exp;
+        }
+        function push9() {
+            exp += "9";
+            document.getElementById("display").value = exp;
+        }
+        function pushplus() {
+            exp += "+";
+            document.getElementById("display").value = exp;
+        }
+        function pushminus() {
+            exp += "-";
+            document.getElementById("display").value = exp;
+        }
+        function pushmul() {
+            exp += "*";
+            document.getElementById("display").value = exp;
+        }
+        function pushdiv() {
+            exp += "/";
+            document.getElementById("display").value = exp;
+        }
+        
+        function pushdot() {
+            exp += ".";
+            document.getElementById("display").value = exp;
+        }
+        function calculate() {
+            exp = eval(exp)
+            document.getElementById("display").value = exp;
+        }
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+            exp = "";
+        }
+
+    </script>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        table{
+            width: 280px;
+            height: 270px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        tr, td {
+            align-items:center;
+            align-content:center;
+        }
+        #divCalculator {
+            border: 1px solid black;
+            width: 300px;
+            height: 400px;
+        }
+        #divMornitor {
+            width: 280px;
+            height: 100px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color:#bdc3c7;
+            border-radius: 5px;
+            box-shadow:none;
+        }
+        button.buttonSquare {
+            width:50px;
+            height:50px;
+        }
+        input.display {
+            width:275px;
+            height:90px;
+            font-size: 30px;
+            text-align:right;
+        }
+    </style>
+</head>
+<body>
+    <div id="divCalculator">
+        <div id="divMornitor">
+            <input class="display" type="text" id="display" readonly="readonly" value="0"/>
+        </div>
+        <table>
+            <tr>
+                <td><button class="buttonSquare" onclick="clearDisplay()">C</button></td>
+                <td><button class="buttonSquare" onclick="pushplus()">+</button></td>
+                <td><button class="buttonSquare" onclick="pushminus()">-</button></td>
+                <td><button class="buttonSquare" onclick="pushmul()">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="buttonSquare" onclick="push7()">7</button></td>
+                <td><button class="buttonSquare" onclick="push8()">8</button></td>
+                <td><button class="buttonSquare" onclick="push9()">9</button></td>
+                <td><button class="buttonSquare" onclick="pushdiv()">/</button></td>
+            </tr>
+            <tr>
+                <td><button class="buttonSquare" onclick="push4()">4</button></td>
+                <td><button class="buttonSquare" onclick="push5()">5</button></td>
+                <td><button class="buttonSquare" onclick="push6()">6</button></td>
+                <td rowspan="3"><button style="height:155px; width:50px;" onclick="calculate()">=</button></td>
+            </tr>
+            <tr>
+                <td><button class="buttonSquare" onclick="push1()">1</button></td>
+                <td><button class="buttonSquare" onclick="push2()">2</button></td>
+                <td><button class="buttonSquare" onclick="push3()">3</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button style="height:50px; width:50px;" onclick="push0()">0</button></td>
+                <td><button class="buttonSquare" value="." onclick="pushdot()">.</button></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
