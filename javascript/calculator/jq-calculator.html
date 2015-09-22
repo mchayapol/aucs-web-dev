@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <meta charset="UTF-8">
 <style>
@@ -25,7 +25,8 @@ $(document).ready(function(){
     $('p').fadeIn('slow');
     $('#display').val('');
     
-    $('#btn0,#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9').click(function(){
+    //$('#btn0,#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9').click(function () {
+    $('.button-numeric').click(function(){
         if (op == '') {
             $('#display').val('');
             op = 'x';
@@ -73,20 +74,20 @@ $(document).ready(function(){
     <td><button id="btnOptSub">-</button></td>
 </tr>
 <tr>
-    <td><button id="btn7">7</button></td>
-    <td><button id="btn8">8</button></td>
-    <td><button id="btn9">9</button></td>
-    <td rowspan="2"><button id="btnOptAdd">+</button></td>
+    <td><button id="btn7" class="button-numeric">7</button></td>
+    <td><button id="btn8" class="button-numeric">8</button></td>
+    <td><button id="btn9" class="button-numeric">9</button></td>
+    <td rowspan="2" class="button-numeric"><button id="btnOptAdd">+</button></td>
 </tr>
 <tr>
-    <td><button id="btn4">4</button></td>
-    <td><button id="btn5">5</button></td>
-    <td><button id="btn6">6</button></td>
+    <td><button id="btn4" class="button-numeric">4</button></td>
+    <td><button id="btn5" class="button-numeric">5</button></td>
+    <td><button id="btn6" class="button-numeric">6</button></td>
 </tr>
 <tr>
-    <td><button id="btn1">1</button></td>
-    <td><button id="btn2">2</button></td>
-    <td><button id="btn3">3</button></td>
+    <td><button id="btn1" class="button-numeric">1</button></td>
+    <td><button id="btn2" class="button-numeric">2</button></td>
+    <td><button id="btn3" class="button-numeric">3</button></td>
     <td rowspan="2"><button id="btnOptCalculate">=</button></td>
 </tr>
 <tr>
