@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script>
+        var answer = "";
+        $(document).ready(function () {
+            $(".numeric,.operator").click(function () {
+                answer = answer + $(this).val();
+                $(".display").val(answer);
+            });
+
+            $("#btnClear").click(function () {
+                answer = "";
+                $(".display").val(answer);
+            });
+
+            $("#btnCalculate").click(function () {
+                answer = eval(answer);
+                $(".display").val(answer);
+            });
+        });
+    </script>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        table{
+            width: 280px;
+            height: 270px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        tr, td {
+            align-items:center;
+            align-content:center;
+        }
+        #divCalculator {
+            border: 1px solid black;
+            width: 300px;
+            height: 400px;
+            background-color:#2ecc71;
+        }
+        #divMornitor {
+            width: 280px;
+            height: 100px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color:#bdc3c7;
+            border-radius: 5px;
+            box-shadow:none;
+        }
+        button.buttonSquare {
+            width:50px;
+            height:50px;
+        }
+        input.display {
+            width:275px;
+            height:90px;
+            font-size: 30px;
+            text-align:right;
+        }
+    </style>
+</head>
+<body>
+    <div id="divCalculator">
+        <div id="divMornitor">
+            <input class="display" type="text" id="display" readonly="readonly" value="0"/>
+        </div>
+        <table>
+            <tr>
+                <td><button class="buttonSquare" id="btnClear">C</button></td>
+                <td><button class="buttonSquare operator" value="+">+</button></td>
+                <td><button class="buttonSquare operator" value="-">-</button></td>
+                <td><button class="buttonSquare operator" value="*">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="buttonSquare numeric" value="7">7</button></td>
+                <td><button class="buttonSquare numeric" value="8">8</button></td>
+                <td><button class="buttonSquare numeric" value="9">9</button></td>
+                <td><button class="buttonSquare operator" value="/">/</button></td>
+            </tr>
+            <tr>
+                <td><button class="buttonSquare numeric" value="4">4</button></td>
+                <td><button class="buttonSquare numeric" value="5">5</button></td>
+                <td><button class="buttonSquare numeric" value="6">6</button></td>
+                <td rowspan="3"><button style="height:155px; width:50px;" id="btnCalculate">=</button></td>
+            </tr>
+            <tr>
+                <td><button class="buttonSquare numeric" value="1">1</button></td>
+                <td><button class="buttonSquare numeric" value="2">2</button></td>
+                <td><button class="buttonSquare numeric" value="3">3</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button style="height:50px; width:126px;" class="numeric" value="0">0</button></td>
+                <td><button class="buttonSquare numeric" value="." >.</button></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
