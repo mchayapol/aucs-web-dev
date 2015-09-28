@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cash Register</title>
+	<style>
+	#CashRegDiv{
+		float: left;
+		width: 300px;
+	}
+	
+	#ReceiptDiv{
+		border: 1px dashed black;
+		width: 200px;
+		min-height: 200px;
+		margin-left: 300px;
+		
+	}
+	
+	h1 {
+		font: normal 14px arial;
+		text-align: center;
+	}
+	
+	.Receipt .sPurchase {
+		float:right;
+	}
+	
+	.Receipt .sCash {
+		float:right;
+	}
+	
+	.Receipt .sChange {
+		float:right;
+	}
+	
+	.Receipt .sAMT {
+		float:right;
+	}
+	
+	.Receipt .sVAT {
+		float:right;
+	}
+	
+	.CashReg .btn1 {
+		
+	}
+	
+	.CashReg. .btn2 {
+		
+	}
+	
+	
+	</style>
+    <script>
+		
+        function calculateChange() {
+            var purchase = document.getElementById('purchase');
+            var cash = document.getElementById('cash');
+            var change = document.getElementById('change');
+
+            var result = Number(cash.value) - Number(purchase.value);
+            console.log(result);
+
+            change.value = result;
+			
+			var rPurchase = document.getElementById('spanPurchase');
+			var rCash = document.getElementById('spanCash');
+			var rChange = document.getElementById('spanChange');
+			var rAmount = document.getElementById('spanAmt');
+			var rVAT = document.getElementById('spanVAT');
+			
+			rPurchase.innerHTML = purchase.value;
+			rCash.innerHTML = cash.value;
+			rChange.innerHTML = change.value;
+			rAmount.innerHTML = purchase.value;
+			rVAT.innerHTML = ((purchase.value / 100) * 7).toPrecision(2);
+			
+        }
+
+        function clearForm() {
+            document.getElementById('purchase').value = '';
+            document.getElementById('cash').value = '';
+            document.getElementById('change').value = '';
+			
+			document.getElementById('spanPurchase').value = '';
+			document.getElementById('spanCash').value = '';
+			document.getElementById('spanChange').value = '';
+			document.getElementById('spanAmt').value = '';
+			document.getElementById('spanVAT').value = '';
+        }
+
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function validateNumber(inputObj) {
+            if (!isNumeric(inputObj.value)) {
+                alert('Invalid input');
+                inputObj.value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+	<div id = "CashRegDiv" class="CashReg">
+    <table>
+        <tr>
+            <td>Purchase</td>
+            <td><input type="text" onblur="validateNumber(this)" id="purchase" /></td>
+        </tr>
+        <tr>
+            <td>Cash</td>
+            <td><input type="text" id="cash" /></td>
+        </tr>
+        <tr>
+            <td>Change</td>
+            <td><input type="text" id="change" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="calculateChange()" class="btn1">Calculate</button>
+                <button onclick="clearForm()" class="btn2">Clear</button>
+            </td>            
+        </tr>
+
+    </table>
+	</div>
+	
+	<div id = "ReceiptDiv" class="Receipt">
+		<h1>Receipt</h1>
+		Purchase: <span id = "spanPurchase" class="sPurchase"></span><br/>
+	    <br/>
+		Cash: <span id = "spanCash" class="sCash"></span><br/>
+		<br/>
+		Change: <span id = "spanChange" class="sChange"></span><br/>
+		<br/>
+		Amount: <span id = "spanAmt" class="sAMT"></span><br/>
+		<br/>
+		VAT (7%): <span id = "spanVAT" class="sVAT"></span>
+		
+	</div>
+</body>
+</html>
