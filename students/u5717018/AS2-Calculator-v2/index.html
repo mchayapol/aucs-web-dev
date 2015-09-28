@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="Calculator">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<link rel="stylesheet" href="css/app.css" charset="utf-8">
+
+		<script src="src/vendor/jquery.js" charset="utf-8"></script>
+		<script src="src/vendor/angular.js" charset="utf-8"></script>
+		<script src="src/index.js" charset="utf-8"></script>
+
+	</head>
+	<body ng-controller="CalculatorCtrl">
+
+		<div class="cal-container">
+			<input class="cal-display" type="text" style="text-align: right" value="{{calService.instruction}}" readonly>
+			<digit-btn ng-repeat="inp in calService.inputs"></digit-btn>
+		</div>
+
+	</body>
+</html>
