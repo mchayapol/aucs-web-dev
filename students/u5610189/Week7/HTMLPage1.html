@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Cash Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnCalculate").click(function () {
+                var purchase = $("#purchase").val();
+                var cash = $("#cash").val();
+                if (!$.isNumeric(purchase) || !$.isNumeric(cash)) {
+                    $("#change").val("Invalid Input");
+                    return;
+                }
+                
+                var change = cash - purchase;
+                $("#change").val(change);
+            });
+
+            $("#btnClear").click(function () {
+                $("input").val('');
+            });
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Purchase</td>
+            <td><input type="text" id="purchase" /></td>
+        </tr>
+        <tr>
+            <td>Cash</td>
+            <td><input type="text" id="cash" /></td>
+        </tr>
+        <tr>
+            <td>Change</td>
+            <td><input type="text" id="change" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="btnCalculate">Calculate</button>
+                <button id="btnClear">Clear</button>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
