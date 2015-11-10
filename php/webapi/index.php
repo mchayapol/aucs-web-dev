@@ -30,12 +30,41 @@ $app->get('/api/movies', function () use ($app,$conn) {
 		}
 		echo json_encode($movies);
 	} else {
+		echo json_encode(
+			array(
+				'status' => 501,
+				'message' => 'Server Error'
+			)
+		);
+	}
+});
+
+$app->post('/api/movies', function() use($app,$conn){
+	$app->response->headers->set("Access-Control-Allow-Origin","*");
+	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
+
+	$newMovie = json_decode( $app->request->getBody() );
+	$name = $newMovie->name;
+	$description = $newMovie->description;
+
+	$sql = "INSERT INTO movie (name,description) VALUES ('$name','$description')";
+
+	$result = $conn->query($sql);
+
+	if ($result == true) {
+		echo json_encode(array(
+			'status' => 200,
+			'message' => 'Added'
+		));
+	} else {
 		echo json_encode(array(
 			'status' => 501,
 			'message' => 'Server Error'
 		));
 	}
 });
+
+
 
 $app->get('/api/movies/:id', function ($id) use ($app,$conn) {
 	$app->response->headers->set("Access-Control-Allow-Origin","*");
@@ -54,6 +83,66 @@ $app->get('/api/movies/:id', function ($id) use ($app,$conn) {
 	}
 });
 
+// List all comments
+$app->get('/api/comments',function () use ($app,$conn) {
+	$app->response->headers->set("Access-Control-Allow-Origin","*");
+	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
+
+	$sql = "SELECT * FROM comment";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+		$movies = array();
+		while($row = $result->fetch_assoc()) {
+			array_push($movies,$row);
+		}
+		echo json_encode($movies);
+	} else {
+		echo json_encode(
+			array(
+				'status' => 501,
+				'message' => 'Server Error'
+			)
+		);
+	}
+});
+
+
+// Get the comment of the given id
+$app->get('/api/comments/:id',function ($id) use ($app,$conn) {
+	$app->response->headers->set("Access-Control-Allow-Origin","*");
+	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
+
+	$sql = "SELECT * FROM comment WHERE id = $id";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+		echo json_encode( $result->fetch_assoc() );
+	} else {
+		echo json_encode(array(
+			'status' => 501,
+			'message' => 'Server Error'
+		));
+	}
+});
+
+// Get the comment of the movie, given id
+$app->get('/api/comments/movie/:mid',function ($mid) use ($app,$conn) {
+	$app->response->headers->set("Access-Control-Allow-Origin","*");
+	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
+
+	$sql = "SELECT * FROM comment WHERE mid = $mid";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+		echo json_encode( $result->fetch_assoc() );
+	} else {
+		echo json_encode(array(
+			'status' => 501,
+			'message' => 'Server Error'
+		));
+	}
+});
 
 $app->run();
 $conn->close();
