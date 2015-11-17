@@ -20,7 +20,7 @@ $app->get('/api/movies', function () use ($app,$conn) {
 	$app->response->headers->set("Access-Control-Allow-Origin","*");
 	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
 
-	$sql = "SELECT * FROM movie";
+	$sql = "SELECT * FROM movie ORDER BY name";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -38,6 +38,69 @@ $app->get('/api/movies', function () use ($app,$conn) {
 		);
 	}
 });
+
+// Get update a movie
+$app->put('/api/movies/:id', function($id) use ($app, $conn) {
+	$app->response->headers->set("Access-Control-Allow-Origin","*");
+	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
+
+	$updateMovieInfo = json_decode( $app->request->getBody() );
+	$name = $updateMovieInfo->name;
+	$description = $updateMovieInfo->description;
+
+	if (isset($updateMovieInfo->rating)) {
+		$rating = $updateMovieInfo->rating;
+	} else {
+		$rating = "rating";
+	}
+
+	if (isset($updateMovieInfo->cover_image)) {
+		$cover_image = "'". $updateMovieInfo->cover_image . "'";
+	} else {
+		$cover_image = "cover_image";
+	}
+
+	$sql = "UPDATE movie SET
+			name = '$name'
+			, description = '$description'
+			, rating = $rating
+			, cover_image = $cover_image
+			WHERE id = $id";
+
+	$result = $conn->query($sql);
+	if ($result == true) {
+		echo json_encode(array(
+			'status' => 200,
+			'message' => 'Updated'
+		));
+	} else {
+		echo json_encode(array(
+			'status' => 501,
+			'message' => 'Server Error'
+		));
+	}
+});
+
+// Delete a movie
+$app->delete('/api/movies/:id', function($id) use($app,$conn) {  
+	$app->response->headers->set("Access-Control-Allow-Origin","*");
+	$app->response->headers->set("Content-Type","application/json; charset=UTF-8");
+	
+	$sql = "DELETE FROM movie WHERE id = $id";
+	$result = $conn->query($sql);
+	if ($result == true) {
+		echo json_encode(array(
+			'status' => 200,
+			'message' => 'Deleted'
+		));
+	} else {
+		echo json_encode(array(
+			'status' => 501,
+			'message' => 'Server Error'
+		));
+	}
+} );
+
 
 $app->post('/api/movies', function() use($app,$conn){
 	$app->response->headers->set("Access-Control-Allow-Origin","*");
