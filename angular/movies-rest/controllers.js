@@ -13,6 +13,7 @@ app.controller('MovieCtrl', function($scope, Movies) {
 		$scope.movie = {};
 	}
 
+<<<<<<< HEAD
 	$scope.delete = function(id) {
 		if (confirm("Are you sure to delete?"))
 		{
@@ -28,5 +29,23 @@ app.controller('MovieCtrl', function($scope, Movies) {
 	$scope.update = function( id ) {
 		$scope.editMode = false;
 		Movies.update( id , $scope.movie);
+=======
+	$scope.delete = function(name) {
+		if (confirm("Are you sure to delete "+name+"?"))
+		{
+			Movies.delete( name );
+		}
+	}
+
+	$scope.edit = function(name) {
+		$scope.editMode = true;
+		$scope.movie = angular.copy( Movies.getByName(name) );
+		$scope.movie['originalName'] = $scope.movie.name;
+	}
+
+	$scope.update = function(originalName) {
+		$scope.editMode = false;
+		Movies.update(originalName, $scope.movie);
+>>>>>>> de1b3bd5751b3ee3489f7cdf832c5812805a585f
 	}
 });
