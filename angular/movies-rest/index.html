@@ -17,11 +17,8 @@
 			ng-disabled="!movie.name"
 			ng-show="!editMode">
 		Add</button>
-<<<<<<< HEAD
+
 		<button ng-click="update( id )"
-=======
-		<button ng-click="update(movie.originalName)"
->>>>>>> de1b3bd5751b3ee3489f7cdf832c5812805a585f
 			ng-disabled="!movie.name"
 			ng-show="editMode">
 		Update</button>
@@ -29,13 +26,10 @@
 	<hr>
 	<ul>
 		<li ng-repeat="m in movies">
-<<<<<<< HEAD
+
 			<button ng-click="edit(m.id)" >Edit</button>
 			<button ng-click="delete(m.id)" >Delete</button>
-=======
-			<button ng-click="edit(m.name)" >Edit</button>
-			<button ng-click="delete(m.name)" >Delete</button>
->>>>>>> de1b3bd5751b3ee3489f7cdf832c5812805a585f
+
 			{{ m.name }} {{ m.description }}
 		</li>
 	</ul>
