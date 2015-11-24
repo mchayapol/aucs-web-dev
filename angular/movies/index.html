@@ -10,15 +10,24 @@
 <body>
 <div ng-app="movieApp" ng-controller="MovieCtrl">
  	<p>
-		Movie Name: <input type="text" ng-model="name"><br>
-		Description: <input type="text" ng-model="description"><br>
-		Rating: <input type="text" ng-model="rating"><br>
-		<button ng-click="add()">Add</button>
+		Movie Name: <input type="text" ng-model="movie.name"><br>
+		Description: <input type="text" ng-model="movie.description"><br>
+		Rating: <input type="text" ng-model="movie.rating"><br>
+		<button ng-click="add()"
+			ng-disabled="!movie.name"
+			ng-show="!editMode">
+		Add</button>
+		<button ng-click="update(movie.originalName)"
+			ng-disabled="!movie.name"
+			ng-show="editMode">
+		Update</button>
 	</p>
 	<hr>
 	<ul>
 		<li ng-repeat="m in movies">
-			{{ m.name }} {{ m.rating }}
+			{{ m.name }} {{ m.description }}
+			<button ng-click="edit(m.name)" >Edit</button>
+			<button ng-click="delete(m.name)" >Delete</button>
 		</li>
 	</ul>
 </div>
