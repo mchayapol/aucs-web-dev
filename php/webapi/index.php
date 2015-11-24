@@ -14,6 +14,14 @@ $app = new \Slim\Slim();
 $app->get('/', function () {
     echo "Movie API";
 });
+header ( 'Access-Control-Allow-Origin: *' );
+header ( 'Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS' );
+
+// Preflight
+$app->options('/api/movies', function () use ($app) {
+	header ( 'Content-Type: text/html; charset=utf-8' );
+	$app->response->setStatus ( 200 );
+});
 
 // Get all movies in JSON
 $app->get('/api/movies', function () use ($app,$conn) {
