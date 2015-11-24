@@ -1,1 +1,0 @@
-Korsak Phuasirirak (5315414)

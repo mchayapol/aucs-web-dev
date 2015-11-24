@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+                $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                dataType: "jsonp",
+                url: "https://api.appery.io/rest/1/db/collections/Contacts",
+                data: {
+                    'X-Appery-Database-Id': '55ff6b84e4b059489684fa83',
+                    'X-Appery-Session-Token': '55dd3817-90b4-4bf1-afe5-10bb92515dc7'
+                },
+                success: function (data) {
+                    alert(JSON.stringify(data));
+                    $('#contacts').html('Data: '+JSON.stringify(data));
+                },
+                error: function (data) {
+                    alert(JSON.stringify(data));
+                    $('#contacts').html(JSON.stringify(data));
+                },
+
+            }).then(function (data) {
+                $('#contacts').html('Data: ' + JSON.stringify(data));
+                alert(JSON.stringify(data));
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="contacts"></div>
+</body>
+</html>

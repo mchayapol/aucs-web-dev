@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cash Register</title>
+    <script>
+        function calculateChange() {
+            var purchase = document.getElementById('purchase');
+            var cash = document.getElementById('cash');
+            var change = document.getElementById('change');
+
+            var result = Number(cash.value) - Number(purchase.value);
+            console.log(result);
+
+            change.value = result;
+        }
+
+        function clearForm() {
+            document.getElementById('purchase').value = '';
+            document.getElementById('cash').value = '';
+            document.getElementById('change').value = '';
+        }
+
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function validateNumber(inputObj) {
+            if (!isNumeric(inputObj.value)) {
+                alert('Invalid input');
+                inputObj.value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Purchase</td>
+            <td><input type="text" onblur="validateNumber(this)" id="purchase" /></td>
+        </tr>
+        <tr>
+            <td>Cash</td>
+            <td><input type="text" id="cash" /></td>
+        </tr>
+        <tr>
+            <td>Change</td>
+            <td><input type="text" id="change" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="calculateChange()">Calculate</button>
+                <button onclick="clearForm()">Clear</button>
+            </td>            
+        </tr>
+
+    </table>
+</body>
+</html>

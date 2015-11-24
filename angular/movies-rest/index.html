@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
+	<script src="controllers.js"></script>
+	<script src="services.js"></script>
+
+</head>
+<body>
+<div ng-app="movieApp" ng-controller="MovieCtrl">
+ 	<p>
+		Movie Name: <input type="text" ng-model="movie.name"><br>
+		Description: <input type="text" ng-model="movie.description"><br>
+		Rating: <input type="text" ng-model="movie.rating"><br>
+		<button ng-click="add()"
+			ng-disabled="!movie.name"
+			ng-show="!editMode">
+		Add</button>
+
+		<button ng-click="update( id )"
+			ng-disabled="!movie.name"
+			ng-show="editMode">
+		Update</button>
+	</p>
+	<hr>
+	<ul>
+		<li ng-repeat="m in movies">
+
+			<button ng-click="edit(m.id)" >Edit</button>
+			<button ng-click="delete(m.id)" >Delete</button>
+
+			{{ m.name }} {{ m.description }}
+		</li>
+	</ul>
+</div>
+</body>
+</html>

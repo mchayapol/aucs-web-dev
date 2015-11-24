@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<script>
+var app = angular.module('movieApp', []);
+app.controller('MovieCtrl', function($scope) {
+
+	$scope.greeting = "Hello How Are You";
+	$scope.movies = [];
+
+	$scope.add = function() {
+		var newMovie = {
+			name: $scope.name,
+			description: $scope.description,
+			rating: $scope.rating
+		}
+		$scope.movies[$scope.movies.length] = newMovie;
+	}
+});
+
+</script>
+</head>
+<body>
+<div ng-app="movieApp" ng-controller="MovieCtrl">
+ 	<p>
+		Movie Name: <input type="text" ng-model="name"><br>
+		Description: <input type="text" ng-model="description"><br>
+		Rating: <input type="text" ng-model="rating"><br>
+		<button ng-click="add()">Add</button>
+	</p>
+	<hr>
+	<ul>
+		<li ng-repeat="m in movies">
+			{{ m.name }} {{ m.rating }}
+		</li>
+	</ul>
+</div>
+</body>
+</html>

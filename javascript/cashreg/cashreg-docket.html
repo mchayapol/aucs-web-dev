@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cash Register</title>
+    <style>
+        #divCashReg {
+            float: left;
+            width: 300px;
+        }
+        #divDocket {
+            border: 1px dashed black;
+            width: 200px;
+            min-height: 200px;
+            margin-left: 300px;
+        }
+    </style>
+    <script>
+        function calculateChange() {
+            var purchase = document.getElementById('purchase');
+            var cash = document.getElementById('cash');
+            var change = document.getElementById('change');
+
+            var result = Number(cash.value) - Number(purchase.value);
+            console.log(result);
+
+            change.value = result;
+
+            // Update docket
+            var dPurchase = document.getElementById('dPurchase');
+            var dCash = document.getElementById('dCash');
+            var dChange = document.getElementById('dChange');
+            var dVat = document.getElementById('dVat');
+            dPurchase.innerHTML = purchase.value;
+            dCash.innerHTML = cash.value;
+            dChange.innerHTML = change.value;
+            dVat.innerHTML = (purchase.value * 7 / 107).toPrecision(2);
+        }
+
+        function clearForm() {
+            document.getElementById('purchase').value = '';
+            document.getElementById('cash').value = '';
+            document.getElementById('change').value = '';
+        }
+
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function validateNumber(inputObj) {
+            if (!isNumeric(inputObj.value)) {
+                alert('Invalid input');
+                inputObj.value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="divCashReg">
+        <table>
+            <tr>
+                <td>Purchase</td>
+                <td><input type="text" onblur="validateNumber(this)" id="purchase" /></td>
+            </tr>
+            <tr>
+                <td>Cash</td>
+                <td><input type="text" id="cash" /></td>
+            </tr>
+            <tr>
+                <td>Change</td>
+                <td><input type="text" id="change" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="calculateChange()">Calculate</button>
+                    <button onclick="clearForm()">Clear</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="divDocket">
+        <h1>Receipt</h1>
+        Purchase <span id="dPurchase"></span><br />
+        Cash <span id="dCash"></span><br />
+        Change <span id="dChange"></span><br />
+        VAT 7% <span id="dVat"></span>
+
+    </div>
+</body>
+</html>
