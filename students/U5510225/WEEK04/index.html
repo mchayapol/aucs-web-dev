@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Layout with DIV</title>
+    <style>
+    body {
+        margin: 0px 0px 0px 0px;
+        background-color: #E5E5E5;
+    }
+    
+    div {
+        border: 0px solid gray;
+    }
+    
+    #divTop,
+    #divFooter {
+        width: 100%;
+        height: 60px;
+        background-color: #404040;
+        color: white;
+    }
+    
+    #divNav {
+        width: 120px;
+        height: 80%;
+        float: left;
+        color: gray;
+    }
+    
+    #divContent {
+        width: 800px;
+        height: 300px;
+        background-color: white;
+        border-radius: 3px;
+        box-shadow: 3px 2px 8px 1px #888888;
+        margin: 8px 0px 0px 125px;
+    }
+    
+    #divFooter {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    #logo {
+        width: 150px;
+        margin-left: 4%;
+    }
+    
+    #search_head {
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 20px;
+        height: 22px;
+        width: 50%;
+        border-radius: 2px;
+        border-width: 0px;
+        text-align: center;
+    }
+    
+    #search_btn {
+        position: absolute;
+        margin-top: 22px;
+        margin-left: 49.7%;
+        height: 19px;
+        height: 19px;
+        background-color: white;
+        border-radius: 2px;
+        border-width: 0px;
+    }
+    
+    #logout_btn {
+        position: absolute;
+        margin-left: 63%;
+        margin-top: 18px;
+        background-color: #1bb270;
+        border-radius: 6px;
+        color: #fff;
+        font-family: 'Oswald';
+        font-size: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        width: 80px;
+        height: 30px;
+    }
+    
+    #profile_btn {
+        position: absolute;
+        margin-left: 55%;
+        margin-top: 18px;
+        background-color: #f49859;
+        border-radius: 6px;
+        color: #fff;
+        font-family: 'Oswald';
+        font-size: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        width: 80px;
+        height: 30px;
+    }
+    
+    #profile_btn:hover,
+    #logout_btn:hover {
+        background-color: #d1d2bc;
+    }
+    
+    #Content_txt {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    
+    #avartar_pic {
+        width: 20px;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    
+    #nav_Topic {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 13px;
+        font-size: 11px;
+    }
+    
+    #nav_Topic_No {
+        margin-left: 20px;
+        font-size: 16px;
+    }
+
+    #avartar_content{
+      width: 50px;
+      margin: 20px 30px 0px 20px;
+      word-wrap: break-word;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="divTop">
+        <img src="inventech.png" id="logo"></img>
+        <input type="text" placeholder="Search People Here" id="search_head"></input>
+        <input type="image" src="search_i.png" id="search_btn"></input>
+        <span><button id="profile_btn">PROFILE</button></span>
+        <span><button id="logout_btn">LOGOUT</button></span>
+    </div>
+    <div id="divNav">
+        <table width="100%">
+            <tr>
+                <img src="" id="avartar_pic">
+                <span>
+                <label id="nav_Topic_No">GROUPS</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">Bit Torrent</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">Com-Sci 55</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">Sci-Tech 55</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">Inventech</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <br>
+            <!-- NEW TOPICS -->
+            <tr>
+                <img src="" id="avartar_pic">
+                <span>
+                <label id="nav_Topic_No">FRIENDS</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">KU_BAND</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">MU_BAND</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">RSU_BAND</label>
+              </span>
+                </img>
+            </tr>
+            <br>
+            <tr>
+                <img src="course.png" id="avartar_pic">
+                <span>
+                <label id="nav_Topic">SWU_BAND</label>
+              </span>
+                </img>
+            </tr>
+        </table>
+    </div>
+    <center>
+        <div id="divContent">
+          <table width="100%">
+              <tr>
+                  
+              </tr>
+          </table>
+          
+        </div>
+    </center>
+    <div id="divFooter">
+        <br>
+        <center>Copyright</center>
+    </div>
+</body>
+
+</html>

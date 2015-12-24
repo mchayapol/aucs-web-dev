@@ -1,0 +1,23 @@
+    #cash_table {
+        background-color: #FFF5EE;
+        float: left;
+    }
+    
+    #purchase_txt,
+    #cash_txt,#change_txt{
+        background-color: #F0FFFF;
+        text-align: right;
+    }
+    
+    #change_txt {
+        background-color: #FFCBA4;
+    }
+    
+    #detail_div {
+        background-color: #43BFC7;
+        float: left;
+        margin-left: 2%;
+        width: 20%;
+        border-style: dashed;
+        border-width: 1px;
+    }

@@ -1,0 +1,33 @@
+#nav_top {
+    width: 100%;
+    border-radius: 0px;
+    color: white;
+}
+
+#bot_text {
+    color: white;
+}
+
+#footer_bar {
+    background-color: #404040;
+    width: 100%;
+    height: 60px;
+}
+
+#left_content,#pic_div {
+    background-color: #990012;
+    color:white;
+}
+
+#right_content {
+	background-color: #990012;
+	color:white;
+}
+
+#row_bb{
+	/*background-color: #404040;*/
+}
+
+#body{
+	background-color: #990012;
+}
